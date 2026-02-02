@@ -1,0 +1,27 @@
+<div class="form-group" [class.d-inline-block]="displayInline">
+  @if (label !== null) {
+    <label [for]="inputId" class="form-label">{{ label }}</label>
+  }
+  <input
+    [type]="showTime ? 'datetime-local' : 'date'"
+    class="form-control"
+    [class.is-invalid]="!valid && isValidated"
+    [class.readonly]="readOnly"
+    [name]="inputId"
+    [id]="inputId"
+    [readOnly]="readOnly"
+    (change)="onChangeDate()"
+    [(ngModel)]="selectedDate"
+  />
+  @if (!valid && isValidated) {
+    <div class="invalid-feedback">
+      <div>{{ errorMessage }}</div>
+    </div>
+  }
+  @if (ageToString) {
+    <span class="text-muted">{{ ageCalculationRelativePrefix }} {{ ageToString }}.</span>
+  }
+  @if (helperText) {
+    <div class="form-text">{{ helperText }}</div>
+  }
+</div>

@@ -1,0 +1,12 @@
+.input-number {
+  background-color: #f8f9fa;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  user-select: none;
+
+  .btn:disabled {
+    pointer-events: none;
+    color: lightgray;
+    border: none;
+  }
+}

@@ -1,0 +1,32 @@
+<router-outlet />
+
+<ph-hello></ph-hello>
+
+<div style="padding: 2rem;">
+  <h3>Input Number Component</h3>
+  <ph-input-number
+    [value]="numberValue()"
+    [min]="0"
+    [max]="100"
+    [step]="1"
+    (valueChange)="numberValue.set($event)"
+  ></ph-input-number>
+  <p style="margin-top: 1rem;">Current value: {{ numberValue() }}</p>
+</div>
+
+<div style="padding: 2rem;">
+  <h3>Input Date Component</h3>
+  <ph-input-date
+    label="Birth Date"
+    [showAgeCalculation]="true"
+    ageCalculationRelativePrefix="Age:"
+    [canBeFutureDate]="false"
+    [required]="true"
+    [initialValue]="selectedDate()"
+    (onDateChanges)="handleDateChange($event)"
+    helperText="Select your birth date"
+  ></ph-input-date>
+  @if (selectedDate()) {
+    <p style="margin-top: 1rem;">Selected date: {{ selectedDate() | date:'medium' }}</p>
+  }
+</div>

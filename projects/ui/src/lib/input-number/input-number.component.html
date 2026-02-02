@@ -1,0 +1,36 @@
+<div class="input-number d-inline-flex align-items-center">
+  <button
+    type="button"
+    class="btn px-0 decrease"
+    aria-label="Decrease"
+    style="width: 40px"
+    [disabled]="value <= min"
+    (click)="decrement()"
+  >
+    –
+  </button>
+
+  <input
+    class="form-control text-center"
+    [value]="textValue"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+    (keydown)="onKeyDown($event)"
+    (wheel)="onWheel($event)"
+    inputmode="numeric"
+    pattern="[0-9]*"
+    aria-label="Quantity"
+    style="width: 4rem"
+  />
+
+  <button
+    type="button"
+    class="btn px-0 increase"
+    aria-label="Increase"
+    style="width: 40px"
+    [disabled]="value >= max"
+    (click)="increment()"
+  >
+    +
+  </button>
+</div>
